@@ -41,11 +41,11 @@ const Header = () => {
                 <div className="form-control mr-5">
                     <label className="label cursor-pointer">
                         <span className="label-text mr-2">Light / Dark</span>
-                        <input type="checkbox" className="toggle" checked />
+                        <input type="checkbox" className="toggle" />
                     </label>
                 </div>
                 <Link id='user-profile' title='User Name' style={ { width: "" } }><FaUserCircle></FaUserCircle></Link>
-                <Link to='/' className="btn">Login / Resister</Link>
+                <Link to='/register' className="btn">Login / Resister</Link>
             </div>
         </div>
     );
