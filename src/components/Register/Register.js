@@ -1,13 +1,16 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../userContext/AuthProvider';
 
 
 
 const Register = () => {
     const googleProvider = new GoogleAuthProvider();
+    const gitProvider = new GithubAuthProvider();
 
-    const { setUser, googleSignIn, registerEmailPass } = useContext(AuthContext);
+    const { setUser, googleSignIn, registerEmailPass, gitHubSignIn } = useContext(AuthContext);
 
     const handleEmailPassRegister = (e) => {
         e.preventDefault();
@@ -19,7 +22,7 @@ const Register = () => {
 
         registerEmailPass(email, password)
             .then(result => {
-                console.log(result.user)
+                setUser(result.user)
                 from.reset();
             })
             .catch(error => console.error(error))
@@ -32,6 +35,15 @@ const Register = () => {
             })
             .catch(error => console.error(error))
     }
+
+    const handleGithubSignIn = () => {
+        gitHubSignIn(gitProvider)
+            .then(result => {
+                setUser(result.user);
+            })
+            .catch(error => { console.error(error) })
+    }
+
     return (
         <div className='text-center'>
             <form onSubmit={ handleEmailPassRegister } className="flex flex-col items-center my-4 w-1/4 mx-auto border p border-indigo-700 rounded-lg bg-gray-200">
@@ -39,11 +51,14 @@ const Register = () => {
                 <input required id='photoURL' type="text" placeholder="Photo URL" className="my-4 input input-bordered input-success w-full max-w-xs" />
                 <input required id='email' type="email" placeholder="Your Email" className="mb-4 input input-bordered input-success w-full max-w-xs" />
                 <input required id='password' type="password" placeholder="Your Password" className="mb-4 input input-bordered input-success w-full max-w-xs" />
-                <button onClick={ handleEmailPassRegister } className="btn bg-purple-700 text-white mb-4">Submit</button>
+                <button onClick={ handleEmailPassRegister } className="btn bg-purple-700 text-white mb-4">Register</button>
             </form>
-            <button onClick={ handleGoogleSignIn } className="btn bg-amber-500 border-0 text-white">Sign In with Google</button>
+            <button onClick={ handleGoogleSignIn } className="btn bg-amber-500 border-0 text-white">Sign In with Google <FaGoogle className='ml-2'></FaGoogle></button>
             <p className=''>Or</p>
-            <button onClick={ handleGoogleSignIn } className="btn text-white">Sign In with GitHub</button>
+            <button onClick={ handleGithubSignIn } className="btn text-white">Sign In with GitHub <FaGithub className='ml-2'></FaGithub></button>
+            <div className='my-4'>
+                <h6>Already have an account?<Link className='text-blue-800 font-semibold' to='/login'>Login</Link></h6>
+            </div>
         </div>
     );
 };
