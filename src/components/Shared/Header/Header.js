@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../../images/logo.png'
+import { FaUserCircle } from 'react-icons/fa'
+import './Header.css'
 
 const Header = () => {
     return (
@@ -15,7 +17,8 @@ const Header = () => {
                         <li><Link to='/'>Faculties</Link></li>
                         <li><Link to='/'>Research</Link></li>
                         <li><Link to='/'>Notices</Link></li>
-                        <li><Link to='/'>About Us</Link></li>
+                        <li><Link to='/'>Blogs</Link></li>
+                        <li><Link to='/'>FAQ</Link></li>
                     </ul>
                 </div>
                 <div>
@@ -30,10 +33,18 @@ const Header = () => {
                     <li><Link to='/'>Faculties</Link></li>
                     <li><Link to='/'>Research</Link></li>
                     <li><Link to='/'>Notices</Link></li>
-                    <li><Link to='/'>About Us</Link></li>
+                    <li><Link to='/'>Blogs</Link></li>
+                    <li><Link to='/'>FAQ</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
+                <div className="form-control mr-5">
+                    <label className="label cursor-pointer">
+                        <span className="label-text mr-2">Light / Dark</span>
+                        <input type="checkbox" className="toggle" checked />
+                    </label>
+                </div>
+                <Link id='user-profile' title='User Name' style={ { width: "" } }><FaUserCircle></FaUserCircle></Link>
                 <Link to='/' className="btn">Login / Resister</Link>
             </div>
         </div>
