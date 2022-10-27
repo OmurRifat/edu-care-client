@@ -9,6 +9,7 @@ import Research from "../../components/Research/Research";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import CheckOut from "../../components/CheckOut/CheckOut";
 import Blogs from "../../components/Blogs/Blogs";
+import PageNotFound from "../../components/PageNotFound/PageNotFound";
 
 const routes = createBrowserRouter([
     {
@@ -57,7 +58,7 @@ const routes = createBrowserRouter([
     },
     {
         path: '*',
-        element: <div>404 || Page not found.</div>
+        element: <PageNotFound></PageNotFound>
     }
 ]);
 

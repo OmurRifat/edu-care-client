@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# EDUCARE - Education Care
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an e-learning platfrom for Those students who desier to get higher eduaction
 
 ## Available Scripts
 
