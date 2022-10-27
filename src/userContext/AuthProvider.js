@@ -8,6 +8,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [facalties, setFacalties] = useState(null);
 
     useEffect(() => {
@@ -49,9 +50,9 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, [])
 
-    const authInfo = { facalties, user, setUser, loading, setLoading, registerEmailPass, emailPassSignIn, googleSignIn, gitHubSignIn, logOut }
+    const authInfo = { facalties, user, setUser, loading, setLoading, error, setError, registerEmailPass, emailPassSignIn, googleSignIn, gitHubSignIn, logOut }
 
-    // console.log(facalties)
+    // console.log(error)
     return (
         <AuthContext.Provider value={ authInfo }>
             { children }

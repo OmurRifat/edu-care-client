@@ -24,9 +24,9 @@ const Header = () => {
                     <ul tabIndex={ 0 } className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/facalties'>Faculties</Link></li>
-                        <li><Link to='/'>Research</Link></li>
+                        <li><Link to='/research'>Research</Link></li>
                         <li><Link to='/'>Notices</Link></li>
-                        <li><Link to='/'>Blogs</Link></li>
+                        <li><Link to='/blogs'>Blogs</Link></li>
                         <li><Link to='/'>FAQ</Link></li>
                     </ul>
                 </div>
@@ -42,7 +42,7 @@ const Header = () => {
                     <li><Link to='/facalties'>Faculties</Link></li>
                     <li><Link to='/research'>Research</Link></li>
                     <li><Link to='/'>Notices</Link></li>
-                    <li><Link to='/'>Blogs</Link></li>
+                    <li><Link to='/blogs'>Blogs</Link></li>
                     <li><Link to='/'>FAQ</Link></li>
                 </ul>
             </div>

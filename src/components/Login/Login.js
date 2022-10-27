@@ -11,7 +11,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const gitProvider = new GithubAuthProvider();
 
-    const { setUser, googleSignIn, emailPassSignIn, gitHubSignIn } = useContext(AuthContext);
+    const { setUser, setError, googleSignIn, emailPassSignIn, gitHubSignIn } = useContext(AuthContext);
 
     const handleEmailPassSignIn = (e) => {
         e.preventDefault();
@@ -25,7 +25,7 @@ const Login = () => {
                 from.reset();
                 navigate(from, { replace: true })
             })
-            .catch(error => console.error(error))
+            .catch(error => setError(error))
     }
 
     const handleGoogleSignIn = () => {
@@ -34,7 +34,7 @@ const Login = () => {
                 setUser(result.user);
                 navigate(from, { replace: true })
             })
-            .catch(error => console.error(error))
+            .catch(error => setError(error.message))
     }
     const handleGithubSignIn = () => {
         gitHubSignIn(gitProvider)
@@ -42,7 +42,7 @@ const Login = () => {
                 setUser(result.user);
                 navigate(from, { replace: true })
             })
-            .catch(error => { console.error(error) })
+            .catch(error => { setError(error) })
     }
     return (
         <div className='text-center'>

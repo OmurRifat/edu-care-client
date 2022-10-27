@@ -7,7 +7,7 @@ import Pdf from 'react-to-pdf'
 const FacaltyDetails = () => {
     const ref = useRef();
     const data = useLoaderData();
-    const { discipline, description, details, img } = data;
+    const { discipline, description, details, img, id } = data;
     return (
         <div className=''>
             <div className='pdf-container'>
@@ -20,7 +20,7 @@ const FacaltyDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className="mx-auto md:mt-24 card w-96 bg-base-100 shadow-xl">
+            <div className="mx-auto md:mt-4 card w-96 bg-base-100 shadow-xl">
                 <figure><img src={ img } alt="Shoes" /></figure>
                 <div className="card-body">
                     <div ref={ ref }>
@@ -31,7 +31,7 @@ const FacaltyDetails = () => {
                         <h4>{ description }</h4>
                         <p>{ details }</p>
                         <div>
-                            <bold>Common Course Content</bold>
+                            <strong>Common Course Content</strong>
                             <ol>
                                 <li>History or Bangladesh</li>
                                 <li>Ethical Behaviour</li>
@@ -42,7 +42,7 @@ const FacaltyDetails = () => {
                         </div>
                     </div>
                     <div className="card-actions justify-end">
-                        <Link><button className="btn btn-primary">GET PREMIUM ACCESS</button></Link>
+                        <Link to={ `checkout/${id}` }><button className="btn btn-primary">GET PREMIUM ACCESS</button></Link>
                     </div>
                 </div>
             </div>
