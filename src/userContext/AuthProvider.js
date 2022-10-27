@@ -6,11 +6,11 @@ export const AuthContext = createContext();
 
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
-    const [facalties, setFacalties] = useState(null)
+    const [user, setUser] = useState(null);
+    const [facalties, setFacalties] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:5000/facalties")
+        fetch("https://edu-care-server-sand.vercel.app/facalties")
             .then(res => res.json())
             .then(data => setFacalties(data))
     }, [])

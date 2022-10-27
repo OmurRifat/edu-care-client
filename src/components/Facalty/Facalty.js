@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Facalty.css'
 
 const Facalty = ({ facalty }) => {
     // console.log(facalty)
-    const { discipline, description, img, details } = facalty;
+    const { discipline, description, img, details, id } = facalty;
     return (
         <div id='facalty-div'>
             <div className="card card-compact w-auto bg-base-100 shadow-xl">
@@ -12,7 +13,7 @@ const Facalty = ({ facalty }) => {
                     <h2 className="card-title">{ discipline }</h2>
                     <p>{ description }</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">See More</button>
+                        <Link to={ `/facalties/${id}` }><button className="btn btn-primary">See More</button></Link>
                     </div>
                 </div>
             </div>
