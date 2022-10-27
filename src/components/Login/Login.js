@@ -1,10 +1,13 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../userContext/AuthProvider';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const googleProvider = new GoogleAuthProvider();
     const gitProvider = new GithubAuthProvider();
 
@@ -20,6 +23,7 @@ const Login = () => {
             .then(result => {
                 setUser(result.user)
                 from.reset();
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -28,6 +32,7 @@ const Login = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 setUser(result.user);
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -35,6 +40,7 @@ const Login = () => {
         gitHubSignIn(gitProvider)
             .then(result => {
                 setUser(result.user);
+                navigate(from, { replace: true })
             })
             .catch(error => { console.error(error) })
     }

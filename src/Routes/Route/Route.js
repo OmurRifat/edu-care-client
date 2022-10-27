@@ -5,6 +5,8 @@ import Login from "../../components/Login/Login";
 import Register from "../../components/Register/Register";
 import Main from "../../layouts/Main";
 import FacaltyDetails from "../../components/FacaltyDetails/FacaltyDetails";
+import Research from "../../components/Research/Research";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const routes = createBrowserRouter([
     {
@@ -33,6 +35,10 @@ const routes = createBrowserRouter([
                 loader: ({ params }) => {
                     return fetch(`https://edu-care-server-sand.vercel.app/facalties/${params.id}`)
                 }
+            },
+            {
+                path: 'research',
+                element: <PrivateRoute><Research></Research></PrivateRoute>
             }
         ]
     },

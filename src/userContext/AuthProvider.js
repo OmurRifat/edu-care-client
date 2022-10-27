@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext();
@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [facalties, setFacalties] = useState(null);
 
     useEffect(() => {
@@ -16,26 +17,39 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const registerEmailPass = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const emailPassSignIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const googleSignIn = (googleProvider) => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider);
     }
 
     const gitHubSignIn = (gitProvider) => {
+        setLoading(true)
         return signInWithPopup(auth, gitProvider)
     }
 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
-    const authInfo = { facalties, user, setUser, registerEmailPass, emailPassSignIn, googleSignIn, gitHubSignIn, logOut }
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+            setLoading(false);
+        })
+        return () => unsubscribe();
+    }, [])
+
+    const authInfo = { facalties, user, setUser, loading, setLoading, registerEmailPass, emailPassSignIn, googleSignIn, gitHubSignIn, logOut }
 
     // console.log(facalties)
     return (
