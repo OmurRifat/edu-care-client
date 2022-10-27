@@ -47,8 +47,8 @@ const Register = () => {
     return (
         <div className='text-center'>
             <form onSubmit={ handleEmailPassRegister } className="flex flex-col items-center my-4 w-1/4 mx-auto border p border-indigo-700 rounded-lg bg-gray-200">
-                <input required id='name' type="text" placeholder="Your Name" className="my-4 input input-bordered input-success w-full max-w-xs" />
-                <input required id='photoURL' type="text" placeholder="Photo URL" className="my-4 input input-bordered input-success w-full max-w-xs" />
+                <input required id='name' type="text" placeholder="Your Full Name" className="my-4 input input-bordered input-success w-full max-w-xs" />
+                <input required id='photoURL' type="text" placeholder="Photo URL" className="mb-4 input input-bordered input-success w-full max-w-xs" />
                 <input required id='email' type="email" placeholder="Your Email" className="mb-4 input input-bordered input-success w-full max-w-xs" />
                 <input required id='password' type="password" placeholder="Your Password" className="mb-4 input input-bordered input-success w-full max-w-xs" />
                 <button onClick={ handleEmailPassRegister } className="btn bg-purple-700 text-white mb-4">Register</button>
