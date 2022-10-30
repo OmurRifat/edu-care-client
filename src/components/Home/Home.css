@@ -10,3 +10,10 @@
     width: 1.5em;
     margin-left: 10px;
 }
+
+@media screen and (max-width: 391px) {
+    .header-content {
+        margin-top: 20px;
+        height: 250px;
+    }
+}

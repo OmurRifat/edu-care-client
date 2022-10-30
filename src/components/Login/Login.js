@@ -46,16 +46,16 @@ const Login = () => {
     }
     return (
         <div className='text-center'>
-            <form onSubmit={ handleEmailPassSignIn } className="flex flex-col items-center my-4 w-1/4 mx-auto border p border-indigo-700 rounded-lg bg-gray-200">
-                <input required id='email' type="email" placeholder="Your Email" className="my-4 input input-bordered input-success w-full max-w-xs" />
-                <input required id='password' type="password" placeholder="Your Password" className="mb-4 input input-bordered input-success w-full max-w-xs" />
-                <button onClick={ handleEmailPassSignIn } className="btn bg-purple-700 text-white mb-4">Log In</button>
+            <form onSubmit={ handleEmailPassSignIn } className=" drop-shadow-lg flex flex-col items-center my-4 md:w-1/5 mx-auto border-0 rounded-3xl bg-gray-200">
+                <input required id='email' type="email" placeholder="Your Email" className="mt-8 shadow-inner mb-4 input border-0 md:w-3/4 max-w-xs" />
+                <input required id='password' type="password" placeholder="Your Password" className="shadow-inner mb-4 input border-0 md:w-3/4 max-w-xs" />
+                <button onClick={ handleEmailPassSignIn } className="btn drop-shadow-xl bg-purple-700 text-white mb-4">Log In</button>
             </form>
             <button onClick={ handleGoogleSignIn } className="btn bg-amber-500 border-0 text-white">Sign In with Google <FaGoogle className='ml-2'></FaGoogle></button>
             <p className=''>Or</p>
-            <button onClick={ handleGithubSignIn } className="btn text-white">Sign In with GitHub <FaGithub className='ml-2'></FaGithub></button>
+            <button onClick={ handleGithubSignIn } className="btn text-white bg-indigo-700">Sign In with GitHub <FaGithub className='ml-2'></FaGithub></button>
             <div className='my-4'>
-                <h6>Already have an account?<Link className='text-blue-800 font-semibold' to='/login'>Login</Link></h6>
+                <h6>Want to create an account?<Link className='text-blue-800 font-semibold' to='/register'>Register</Link></h6>
             </div>
         </div>
     );

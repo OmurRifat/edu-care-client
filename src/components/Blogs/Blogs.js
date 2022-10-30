@@ -3,7 +3,7 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div>
-            <div className="card w-1/2 bg-base-100 shadow-xl mx-auto my-4">
+            <div className="card w-full md:w-1/2 bg-base-100 shadow-xl mx-auto my-4">
                 <figure className="px-10 pt-10">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqoueKs3BYIznoZifrCEyGXyyBkhjeXGF3Nw&usqp=CAU" alt="Shoes" className="rounded-xl" />
                 </figure>
@@ -15,7 +15,7 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
-            <div className="card w-1/2 bg-base-100 shadow-xl mx-auto my-4">
+            <div className="card w-full md:w-1/2 bg-base-100 shadow-xl mx-auto my-4">
                 <figure className="px-10 pt-10">
                     <img src="https://i.ytimg.com/vi/9bXhf_TELP4/maxresdefault.jpg" alt="Shoes" className="rounded-xl" />
                 </figure>
@@ -36,7 +36,7 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
-            <div className="card w-1/2 bg-base-100 shadow-xl mx-auto my-4">
+            <div className="card w-full md:w-1/2 bg-base-100 shadow-xl mx-auto my-4">
                 <figure className="px-10 pt-10">
                     <img src="https://media-exp1.licdn.com/dms/image/C5612AQHUplMGIv3KDg/article-cover_image-shrink_720_1280/0/1645382397748?e=2147483647&v=beta&t=RBikKY7lOJL9jtse2JFrHVpfEqARNInaivao3n77SbQ" alt="Shoes" className="rounded-xl" />
                 </figure>
@@ -48,7 +48,7 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
-            <div className="card w-1/2 bg-base-100 shadow-xl mx-auto my-4">
+            <div className="card w-full md:w-1/2 bg-base-100 shadow-xl mx-auto my-4">
                 <figure className="px-10 pt-10">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4RiKFo9KtzAs7k17H6fMtiHwl1OWdLlijNxmdXPm9eE7T56VmvFmlhw9JZNmDH1bX5jI&usqp=CAU" alt="Shoes" className="rounded-xl" />
                 </figure>
